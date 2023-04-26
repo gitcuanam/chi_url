@@ -13,6 +13,8 @@ services:
     volumes:
       - node1-vol:/var/lib/cassandra
       - ../cassandra/node1/cassandra:/etc/cassandra
+    ports:
+    - "9042:9042"
     restart: always
 
   # schema loading node

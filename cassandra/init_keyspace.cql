@@ -65,6 +65,6 @@ CREATE TABLE IF NOT EXISTS chi_url.user (
 
 CREATE INDEX IF NOT EXISTS email ON chi_url.user (email);
 
-CREATE ROLE IF NOT EXISTS cassandra with superuser = true AND LOGIN = true and PASSWORD = 'cassandra';
+// CREATE ROLE IF NOT EXISTS cassandra with superuser = true AND LOGIN = true and PASSWORD = 'cassandra';
 
 ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class' : 'NetworkTopologyStrategy', 'datacenter1': 1};

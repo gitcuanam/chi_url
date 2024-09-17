@@ -1,0 +1,1312 @@
+DEBUG:cassandra.util:Could not resolve hostname "node-1" with port 9042
+DEBUG:cassandra.util:Could not resolve hostname "node-1" with port 9042
+DEBUG:cassandra.util:Could not resolve hostname "node-1" with port 9042
+DEBUG:cassandra.util:Could not resolve hostname "node-1" with port 9042
+DEBUG:cassandra.util:Could not resolve hostname "node-1" with port 9042
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['172.17.0.3']; protocol version: 5
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470407084304) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470407084304) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470407084304) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470407084304) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470407084304) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470407084304).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470407084304) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '172.17.0.3:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470394148992) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470394148992) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470394148992) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470394148992) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470394148992) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470394148992).
+DEBUG:cassandra.connection:Defuncting connection (140470394148992) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470394148992) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470385046624) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470385046624) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470385046624) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470385046624) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470385046624) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470385046624).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470385046624) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470394148224) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470394148224) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470394148224) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470394148224) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470394148224) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470394148224).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470394148224) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470407084304) 172.17.0.3:9042>, replacing with <LibevConnection(140470394148224) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470407084304) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140470394148224) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470394147456) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470394147456) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470394147456) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470394147456) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470394147456) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470394147456).
+DEBUG:cassandra.connection:Defuncting connection (140470394147456) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470394147456) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470385046192) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470385046192) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470385046192) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470385046192) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470385046192) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470385046192).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470385046192) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470394147072) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470394147072) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470394147072) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470394147072) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470394147072) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470394147072).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470394147072) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470394148224) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470394147072) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470394147072) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359397232) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470359397232) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359397232) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359397232) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359397232) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359397232).
+DEBUG:cassandra.connection:Defuncting connection (140470359397232) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359397232) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470407085264) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470407085264) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470407085264) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470407085264) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470407085264) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470407085264).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470407085264) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470407084784) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470407084784) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470407084784) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470407084784) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470407084784) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470407084784).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470407084784) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470394147072) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470407084784) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470407084784) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.connection:Cannot send heartbeat message on connection (140470407084784) to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359396656) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470359396656) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359396656) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359396656) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359396656) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359396656).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470359396656) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470407084784) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470359396656) 172.17.0.3:9042>
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359016832) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470359016832) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359016832) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359016832) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359016832) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359016832).
+DEBUG:cassandra.connection:Defuncting connection (140470359016832) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359016832) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359398096) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470359398096) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359398096) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359398096) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359398096) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359398096).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359398096) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359397904) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470359397904) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359397904) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359397904) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359397904) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359397904).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470359397904) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470359396656) 172.17.0.3:9042>, replacing with <LibevConnection(140470359397904) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359396656) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359397904) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358417520) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358417520) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358417520) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358417520) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358417520) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358417520).
+DEBUG:cassandra.connection:Defuncting connection (140470358417520) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358417520) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358417568) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358417568) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358417568) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358417568) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358417568) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358417568).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358417568) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358417568) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358417568) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358417568) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358417568) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358417568) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358417568).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470358417568) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470359397904) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470358417568) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358417568) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358619472) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358619472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358619472) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358619472) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358619472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358619472).
+DEBUG:cassandra.connection:Defuncting connection (140470358619472) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358619472) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358611424) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358611424) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358611424) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358611424) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358611424) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358611424).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358611424) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358612240) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358612240) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358612240) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358612240) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358612240) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358612240).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470358612240) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470358417568) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470358612240) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358612240) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.connection:Cannot send heartbeat message on connection (140470358612240) to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358417808) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358417808) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358417808) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358417808) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358417808) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358417808).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470358417808) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470358612240) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470358417808) 172.17.0.3:9042>
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470357942672) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470357942672) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470357942672) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470357942672) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470357942672) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470357942672).
+DEBUG:cassandra.connection:Defuncting connection (140470357942672) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470357942672) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358611472) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470358611472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358611472) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358611472) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358611472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358611472).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358611472) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470357942528) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470357942528) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470357942528) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470357942528) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470357942528) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470357942528).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470357942528) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470358417808) 172.17.0.3:9042>, replacing with <LibevConnection(140470357942528) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358417808) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140470357942528) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358442144) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358442144) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358442144) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358442144) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358442144) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358442144).
+DEBUG:cassandra.connection:Defuncting connection (140470358442144) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358442144) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358611472) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358611472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358611472) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358611472) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358611472) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358611472).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358611472) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358314864) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358314864) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358314864) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358314864) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358314864) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358314864).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470358314864) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470357942528) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470358314864) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358314864) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470357843152) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470357843152) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470357843152) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470357843152) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470357843152) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470357843152).
+DEBUG:cassandra.connection:Defuncting connection (140470357843152) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470357843152) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358618704) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358618704) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358618704) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358618704) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358618704) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358618704).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358618704) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470358466720) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470358466720) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470358466720) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470358466720) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470358466720) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470358466720).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470358466720) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470358314864) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470358466720) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470358466720) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.connection:Cannot send heartbeat message on connection (140470358466720) to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470357897376) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140470357897376) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470357897376) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470357897376) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470357897376) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470357897376).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470357897376) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470358466720) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(140470357897376) 172.17.0.3:9042>
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470385338448) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470385338448) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470385338448) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470385338448) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470385338448) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470385338448).
+DEBUG:cassandra.connection:Defuncting connection (140470385338448) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140470385338448) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470359526464) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470359526464) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470359526464) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470359526464) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470359526464) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470359526464).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140470359526464) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140470384825104) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140470384825104) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140470384825104) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140470384825104) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140470384825104) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140470384825104).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140470384825104) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140470357897376) 172.17.0.3:9042>, replacing with <LibevConnection(140470384825104) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140470357897376) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140470384825104) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['172.17.0.3']; protocol version: 5
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737401899280) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737401899280) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737401899280) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737401899280) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737401899280) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737401899280).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737401899280) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '172.17.0.3:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737388967680) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737388967680) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737388967680) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737388967680) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737388967680) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737388967680).
+DEBUG:cassandra.connection:Defuncting connection (139737388967680) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (139737388967680) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737401898416) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737401898416) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737401898416) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737401898416) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737401898416) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737401898416).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (139737401898416) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737388966720) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737388966720) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737388966720) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737388966720) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737388966720) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737388966720).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737388966720) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(139737401899280) 172.17.0.3:9042>, replacing with <LibevConnection(139737388966720) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (139737401899280) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139737388966720) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380317600) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737380317600) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380317600) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380317600) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380317600) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380317600).
+DEBUG:cassandra.connection:Defuncting connection (139737380317600) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380317600) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380316112) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737380316112) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380316112) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380316112) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380316112) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380316112).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380316112) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737388968640) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737388968640) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737388968640) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737388968640) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737388968640) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737388968640).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737388968640) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(139737388966720) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(139737388968640) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (139737388968640) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380045248) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737380045248) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380045248) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380045248) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380045248) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380045248).
+DEBUG:cassandra.connection:Defuncting connection (139737380045248) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380045248) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737370891504) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737370891504) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737370891504) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737370891504) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737370891504) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737370891504).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (139737370891504) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380046784) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737380046784) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380046784) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380046784) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380046784) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380046784).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737380046784) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(139737388968640) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(139737380046784) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380046784) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.connection:Cannot send heartbeat message on connection (139737380046784) to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380045248) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737380045248) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380045248) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380045248) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380045248) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380045248).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737380045248) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(139737380046784) 172.17.0.3:9042 (closed)>, replacing with <LibevConnection(139737380045248) 172.17.0.3:9042>
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737388809040) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737388809040) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737388809040) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737388809040) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737388809040) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737388809040).
+DEBUG:cassandra.connection:Defuncting connection (139737388809040) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (139737388809040) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737370892176) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737370892176) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737370892176) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737370892176) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737370892176) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737370892176).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (139737370892176) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737380046736) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (139737380046736) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737380046736) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737380046736) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737380046736) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737380046736).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(139737380046736) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(139737380045248) 172.17.0.3:9042>, replacing with <LibevConnection(139737380046736) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380045248) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (139737380046736) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (139737370157264) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (139737370157264) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(139737370157264) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(139737370157264) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (139737370157264) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (139737370157264).
+DEBUG:cassandra.connection:Defuncting connection (139737370157264) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (139737370157264) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection
+DEBUG:cassandra.cluster:Connecting to cluster, contact points: ['172.17.0.3']; protocol version: 5
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140262549281040) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Starting libev event loop
+DEBUG:cassandra.connection:Received options response on new connection (140262549281040) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140262549281040) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140262549281040) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140262549281040) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140262549281040).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140262549281040) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+INFO:cassandra.policies:Using datacenter 'datacenter1' for DCAwareRoundRobinPolicy (via host '172.17.0.3:9042'); if incorrect, please specify a local_dc to the constructor, or limit contact points to local cluster nodes
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Rebuilding token map due to topology changes
+DEBUG:cassandra.cluster:Control connection created
+DEBUG:cassandra.pool:Initializing connection for host 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140262536345296) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140262536345296) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140262536345296) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140262536345296) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140262536345296) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140262536345296).
+DEBUG:cassandra.connection:Defuncting connection (140262536345296) to 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+DEBUG:cassandra.io.libevreactor:Closing connection (140262536345296) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+WARNING:cassandra.cluster:Failed to create connection pool for new host 172.17.0.3:9042:
+Traceback (most recent call last):
+  File "cassandra/connection.py", line 1439, in cassandra.connection.Connection.set_keyspace_blocking
+  File "cassandra/connection.py", line 1029, in cassandra.connection.Connection.wait_for_response
+  File "cassandra/connection.py", line 1076, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1071, in cassandra.connection.Connection.wait_for_responses
+  File "cassandra/connection.py", line 1570, in cassandra.connection.ResponseWaiter.deliver
+cassandra.InvalidRequest: Error from server: code=2200 [Invalid query] message="Keyspace 'chi_url' does not exist"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "cassandra/cluster.py", line 3175, in cassandra.cluster.Session.add_or_renew_pool.run_add_or_renew_pool
+  File "cassandra/pool.py", line 405, in cassandra.pool.HostConnection.__init__
+  File "cassandra/connection.py", line 1447, in cassandra.connection.Connection.set_keyspace_blocking
+cassandra.connection.ConnectionException: Problem while setting keyspace: InvalidRequest('Error from server: code=2200 [Invalid query] message="Keyspace \'chi_url\' does not exist"')
+WARNING:cassandra.cluster:Host 172.17.0.3:9042 has been marked down
+DEBUG:cassandra.cluster:[control connection] Control connection host (172.17.0.3:9042) is considered down, starting reconnection
+DEBUG:cassandra.cluster:Starting reconnector for host 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Attempting to reconnect
+DEBUG:cassandra.cluster:Error trying to reconnect control connection: NoHostAvailable('Unable to connect to any servers', {})
+DEBUG:cassandra.connection:Sending initial options message for new connection (140262536344576) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140262536344576) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140262536344576) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140262536344576) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140262536344576) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140262536344576).
+INFO:cassandra.pool:Successful reconnection to 172.17.0.3:9042, marking node up if it isn't already
+DEBUG:cassandra.cluster:Waiting to acquire lock for handling up status of node 172.17.0.3:9042
+DEBUG:cassandra.cluster:Starting to handle up status of node 172.17.0.3:9042
+INFO:cassandra.cluster:Host 172.17.0.3:9042 may be up; will prepare queries and open connection pool
+DEBUG:cassandra.cluster:Now that host 172.17.0.3:9042 is up, cancelling the reconnection handler
+DEBUG:cassandra.cluster:Done preparing all queries for host 172.17.0.3:9042, 
+DEBUG:cassandra.cluster:Signalling to load balancing policies that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Signalling to control connection that host 172.17.0.3:9042 is up
+DEBUG:cassandra.cluster:Attempting to open new connection pools for host 172.17.0.3:9042
+DEBUG:cassandra.pool:Host 172.17.0.3:9042 is now marked up
+DEBUG:cassandra.io.libevreactor:Closing connection (140262536344576) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:[control connection] Opening new connection to 172.17.0.3:9042
+DEBUG:cassandra.connection:Sending initial options message for new connection (140262536345920) to 172.17.0.3:9042
+DEBUG:cassandra.connection:Received options response on new connection (140262536345920) from 172.17.0.3:9042
+DEBUG:cassandra.connection:No available compression types supported on both ends. locally supported: odict_keys([]). remotely supported: ['snappy', 'lz4']
+DEBUG:cassandra.connection:Sending StartupMessage on <LibevConnection(140262536345920) 172.17.0.3:9042>
+DEBUG:cassandra.connection:Sent StartupMessage on <LibevConnection(140262536345920) 172.17.0.3:9042>
+WARNING:cassandra.connection:An authentication challenge was not sent, this is suspicious because the driver expects authentication (configured authenticator = PlainTextAuthenticator)
+DEBUG:cassandra.connection:Got ReadyMessage on new connection (140262536345920) from 172.17.0.3:9042
+DEBUG:cassandra.connection:Enabling protocol checksumming on connection (140262536345920).
+DEBUG:cassandra.cluster:[control connection] Established new connection <LibevConnection(140262536345920) 172.17.0.3:9042>, registering watchers and refreshing schema and topology
+DEBUG:cassandra.cluster:[control connection] Refreshing node list and token map using preloaded results
+DEBUG:cassandra.cluster:[control connection] Finished fetching ring info
+DEBUG:cassandra.cluster:[control connection] Closing old connection <LibevConnection(140262549281040) 172.17.0.3:9042>, replacing with <LibevConnection(140262536345920) 172.17.0.3:9042>
+DEBUG:cassandra.io.libevreactor:Closing connection (140262549281040) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:Closing connection (140262536345920) to 172.17.0.3:9042
+DEBUG:cassandra.io.libevreactor:All Connections currently closed, event loop ended
+DEBUG:cassandra.io.libevreactor:Closed socket to 172.17.0.3:9042
+DEBUG:cassandra.cluster:Shutting down Cluster Scheduler
+DEBUG:cassandra.cluster:Shutting down control connection

@@ -5,6 +5,20 @@
 [![GitHub issues](https://img.shields.io/github/issues/Cosmicoppai/chi_url?color=lightgrey)](https://github.com/Cosmicoppai/chi_url/issues)
 [![MIT License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
 
+##
+Run unicorn locally
+```bash
+gunicorn main:app --preload -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
+```
+Create cassandra container manually
+```
+cd cassandra
+docker run -d -p 9042:9042 --mount type=bind,source=./init_keyspace.cql,target=/schema.cql --name node-1 cassandra:4.0.4
+docker exec -it node-1 bash
+nodetool status
+cqlsh node-1 -f /schema.cql -u cassandra -p cassandra
+```
+
 ## About
 <img align="right" width="150" height="170" src="static/icon.png" alt="icon">
  An URL Shortener developed using FASTAPI, Cassandra, React and deployed using containers on cloud.

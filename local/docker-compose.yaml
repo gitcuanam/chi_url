@@ -7,12 +7,14 @@ services:
     container_name: node-1
     environment: &environment
       - CASSANDRA_CLUSTER_NAME=cluster1
-      - CASSANDRA_DC=Mumbai
+      - CASSANDRA_DC=datacenter1
       - CASSANDRA_ENDPOINT_SNITCH=GossipingPropertyFileSnitch
       - CASSANDRA_SEEDS=node-1
     volumes:
       - node1-vol:/var/lib/cassandra
       - ../cassandra/node1/cassandra:/etc/cassandra
+    ports:
+    - "9042:9042"
     restart: always
 
   # schema loading node

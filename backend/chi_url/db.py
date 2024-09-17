@@ -35,6 +35,7 @@ profiles = ExecutionProfile(
 
 _AUTH_PROVIDER = PlainTextAuthProvider(username=_username, password=_password)
 
+print(_keyspace)
 _CLUSTER = Cluster(contact_points=['node-1',],port=9042, ssl_context=None,
                    protocol_version=5,
                    auth_provider=_AUTH_PROVIDER,
@@ -43,6 +44,8 @@ _CLUSTER = Cluster(contact_points=['node-1',],port=9042, ssl_context=None,
 while True:
     try:
         session = _CLUSTER.connect(_keyspace)
+        print('try')
         break
     except:
         time.sleep(10)  # wait before reconnecting
+        print('exc')
